@@ -23,7 +23,7 @@ A web-based real-time collaborative editor. Users can create, edit, and share do
 ### Backend
 1. Clone repository and navigate to backend
 ```
-git clone ""
+git clone "https://github.com/niharika-2212/Real-time-Collaborative-Document-Editor.git"
 cd backend
 npm install
 ```
