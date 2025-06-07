@@ -1,0 +1,58 @@
+.edit{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: 100%;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  gap: 20px;
+}
+
+.edit-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input{
+  background-color: #171717;
+  color: #ededed;
+  font-weight: bold;
+  font-size: 28px;
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid #ededed;
+  /* width: ; */
+}
+
+.title-input:focus{
+  outline: none;
+}
+
+.text-editor{
+  /* height: 300px; */
+  padding: 10px;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #171717;
+  color: #ededed;
+  resize: none;
+  /* border: 1px solid #ededed; */
+}
+.sharing{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.share-input{
+  background-color: #ededed;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
+  border-radius: 10px;
+}
+

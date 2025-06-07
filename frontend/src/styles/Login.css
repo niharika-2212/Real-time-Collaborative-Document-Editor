@@ -1,0 +1,48 @@
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.login-1{
+  padding: 20px;
+}
+
+.login-2{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+  /* justify-content: center; */
+}
+
+.form-header, .input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group input{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ededed;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+
+
+.login-form .redirect{
+  text-decoration: none;
+  color: #C84B31;
+}

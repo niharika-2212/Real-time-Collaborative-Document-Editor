@@ -1,0 +1,16 @@
+.navbar-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ededed;
+  /* box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.1), 0 6px 20px 0 rgba(255, 255, 255, 0.1); */
+}
+
+.name{
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.name:hover{
+  color: #346751;
+}
