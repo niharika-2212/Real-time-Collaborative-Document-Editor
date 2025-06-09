@@ -56,3 +56,8 @@
   border-radius: 10px;
 }
 
+@media(max-width: 768px){
+  .title-input{
+    font-size: 24px;
+  }
+}

@@ -9,15 +9,20 @@ function Login() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading,setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await login(email, password);
-      alert("Login successful!");
+      // alert("Login successful!");
+      setLoading(false);
       navigate("/");
     } catch (error) {
+      setLoading(false);
       alert(err.message);
     }
   };
@@ -57,8 +62,8 @@ function Login() {
               required
             />
           </div>
-          <button type="submit" className="green-button">
-            Log In
+          <button type="submit" className={loading ? "green-button disabled" : "green-button"}>
+            {loading ? "Logging In" : "Login In"}
           </button>
           <p>
             Are you new here?{" "}
@@ -67,7 +72,7 @@ function Login() {
             </Link>
           </p>
         </form>
-        <img src={image} className="login-image" />
+        <div className="image-section"><img src={image} className="login-image" /></div>
       </div>
     </div>
   );

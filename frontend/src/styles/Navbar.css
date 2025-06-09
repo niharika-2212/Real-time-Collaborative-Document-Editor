@@ -14,3 +14,9 @@
 .name:hover{
   color: #346751;
 }
+
+@media(max-width: 768px){
+  .user-name{
+    display: none;
+  }
+}

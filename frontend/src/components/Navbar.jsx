@@ -14,7 +14,7 @@ function Navbar() {
   return(
     <div className="navbar-container">
       <h2 onClick={() => {navigate("/")}} className="name">CoWrite</h2>
-      <div>Hello {userData.name}!</div>
+      <div className="user-name">Hello {userData.name}!</div>
       <div className="green-button" onClick={handleLogout}>Logout</div>
     </div>
   )

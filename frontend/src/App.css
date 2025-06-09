@@ -37,6 +37,22 @@ p {
   text-align: center;
 }
 
+@media (max-width: 768px){
+  h1{
+    font-size: 32px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  body{
+    font-size: 14px;
+  }
+  p{
+    font-size: 14px;
+  }
+
+}
+
 .green-button {
   padding: 10px 15px;
   border-radius: 10px;
@@ -45,6 +61,8 @@ p {
   color: #ededed;
   font-family: inherit;
   font-size: inherit;
+  transition: all 0.3s ease;
+
 }
 
 .white-button {
@@ -70,4 +88,9 @@ p {
 .white-button:active {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
 }

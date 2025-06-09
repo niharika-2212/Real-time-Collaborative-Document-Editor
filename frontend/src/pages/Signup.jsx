@@ -9,16 +9,19 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true);
     try {
       await signup(email, password, name);
-      alert("Signup successful!");
+      // alert("Signup successful!");
       navigate("/");
+      setLoading(false);
     } catch (err) {
       alert(err.message);
+      setLoading(false);
     }
     
   }
@@ -33,7 +36,7 @@ function Signup() {
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-header">
             <h2>Create a new account!</h2>
-            <p>SignUp to continue</p>
+            <p>Sign Up to continue</p>
           </div>
           <div className="input-group">
             <label htmlFor="email">Email</label>
@@ -71,8 +74,8 @@ function Signup() {
               required
             />
           </div>
-          <button type="submit" className="green-button">
-            Sign Up
+          <button type="submit" className={loading ? "green-button disabled" : "green-button"}>
+            {loading ? "Signing Up" : "Sign up"}
           </button>
           <p>
             Are you new here?{" "}
