@@ -63,7 +63,7 @@ function Login() {
             />
           </div>
           <button type="submit" className={loading ? "green-button disabled" : "green-button"}>
-            {loading ? "Logging In" : "Login In"}
+            {loading ? "Logging In" : "Login"}
           </button>
           <p>
             Are you new here?{" "}

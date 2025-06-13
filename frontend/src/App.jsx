@@ -4,12 +4,13 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import Edit from "./pages/Edit.jsx";
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 function App() {
   return (
     <div className='app'>
       <Router>
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/edit/:id" element={<Edit/>}/>

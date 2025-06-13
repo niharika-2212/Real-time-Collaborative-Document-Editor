@@ -30,6 +30,7 @@ export const getDocumentsForUser = async (req, res) => {
   }
 };
 
+// get document by id
 export const getDocumentById = async (req, res) => {
   try {
     // get email for user
@@ -53,7 +54,7 @@ export const getDocumentById = async (req, res) => {
   }
 };
 
-
+// update document in mongodb
 export const updateDocument = async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -70,7 +71,7 @@ export const updateDocument = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
+// share document with others using email
 export const shareDocument = async (req, res) => {
   const { id } = req.params;
   const { email } = req.body;

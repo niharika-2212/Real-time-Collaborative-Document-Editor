@@ -14,7 +14,7 @@ function Edit() {
   const [saving, setSaving] = useState(false);
   const [savingStatus, setSavingStatus] = useState("");
   const [shareEmail, setShareEmail] = useState("");
-
+  const [hasAccess, setHasAccess] = useState(false);
   const socketRef = useRef(null);
   const contentRef = useRef(content);
   const isRemoteChange = useRef(false);
@@ -33,8 +33,15 @@ function Edit() {
         setTitle(res.data.doc.title);
         setContent(res.data.doc.content);
         contentRef.current = res.data.doc.content;
+        setHasAccess(true); // Reset in case they got access
+
       } catch (err) {
         console.error("Error loading document:", err);
+        if (err.response && err.response.status === 403) {
+          setHasAccess(false);
+        } else if (err.response && err.response.status === 404) {
+          setHasAccess(false);
+        }
       }
     }
 
@@ -135,49 +142,52 @@ function Edit() {
   return (
     <div className="edit">
       <Navbar />
-      <div className="main-container">
-        <div
-          className="saving-doc"
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            color: saving ? "#C84B31" : "#346751",
-          }}
-        >
-          {savingStatus}
-        </div>
+      {(!hasAccess) ?
+        <div className="no-access">You do not have access to this document</div> :
+        <div className="main-container">
+          <div
+            className="saving-doc"
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              color: saving ? "#C84B31" : "#346751",
+            }}
+          >
+            {savingStatus}
+          </div>
 
-        <div className="sharing">
+          <div className="sharing">
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              value={shareEmail}
+              onChange={(e) => setShareEmail(e.target.value)}
+              className="share-input"
+            />
+            <button className="green-button" onClick={handleShare}>
+              Share
+            </button>
+          </div>
+
           <input
-            type="email"
-            placeholder="email"
-            name="email"
-            value={shareEmail}
-            onChange={(e) => setShareEmail(e.target.value)}
-            className="share-input"
+            className="title-input"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Untitled Document"
           />
-          <button className="green-button" onClick={handleShare}>
-            Share
-          </button>
-        </div>
 
-        <input
-          className="title-input"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Untitled Document"
-        />
-
-        <div className="edit-container">
-          <textarea
-            className="text-editor"
-            value={content}
-            rows={10}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Start writing here..."
-          />
+          <div className="edit-container">
+            <textarea
+              className="text-editor"
+              value={content}
+              rows={10}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Start writing here..."
+            />
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 }

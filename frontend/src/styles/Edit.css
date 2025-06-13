@@ -5,6 +5,15 @@
   height: 100%;
 }
 
+.no-access{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: #C84B31;
+}
+
 .main-container{
   display: flex;
   flex-direction: column;
